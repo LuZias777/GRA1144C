@@ -34,7 +34,6 @@ body {
     width:100%;
     height:100vh; 
     overflow:hidden;
-    background: #000;
 }
 
 .banner iframe {
@@ -46,7 +45,6 @@ body {
     min-height:100vh;
     min-width:177.77vh;
     transform:translate(-50%, -50%);
-    z-index: 1;
 }
 
 .play-overlay {
@@ -56,35 +54,26 @@ body {
     flex-direction: column;
     justify-content:center;
     align-items:center;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.4);
     cursor:pointer;
-    z-index: 10;
+    z-index:2;
 }
 
 .play-overlay span {
     font-family:'Alfa Slab One', serif;
     font-size:2rem;
     color:white;
-    background:rgba(255, 140, 0, 0.8);
+    background:rgba(0,0,0,0.7);
     padding:20px 40px;
     border-radius:10px;
     letter-spacing:2px;
-    transition: 0.3s;
 }
 
-.play-overlay span:hover {
-    background:rgba(255, 140, 0, 1);
-    transform: scale(1.05);
-}
-
-.fallback-link {
-    margin-top: 20px;
-    color: #ccc;
-    text-decoration: none;
+.play-overlay a {
+    color: #ff8c00;
+    margin-top: 15px;
+    text-decoration: underline;
     font-size: 0.9rem;
-    border: 1px solid #444;
-    padding: 10px 20px;
-    border-radius: 5px;
 }
 
 .wrapper { 
@@ -287,17 +276,15 @@ footer p { color: #888; line-height: 1.6; }
 
 <div class="banner" id="top">
     <iframe id="ytvideo"
-        src="https://www.youtube.com/embed/vAtUHeMQ1F8?enablejsapi=1&autoplay=0&controls=1&rel=0"
+        src="https://www.youtube.com/embed/vAtUHeMQ1F8?enablejsapi=1&rel=0&autoplay=0&controls=0"
         frameborder="0"
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen>
     </iframe>
 
-    <div class="play-overlay" id="videoOverlay" onclick="playVideo()">
+    <div class="play-overlay" onclick="playVideo()">
         <span>CLICK TO PLAY TRAILER</span>
-        <a href="https://www.youtube.com/watch?v=vAtUHeMQ1F8" target="_blank" class="fallback-link">
-            Open in YouTube (if player is blocked)
-        </a>
+        <a href="https://www.youtube.com/watch?v=vAtUHeMQ1F8" target="_blank">Watch on YouTube if error</a>
     </div>
 </div>
 
@@ -446,16 +433,11 @@ audiences to confront a haunting question: how far could you go?
 </div>
 
 <script>
-// This function communicates with the YouTube Iframe API
+// Improved Play function using PostMessage
 function playVideo() {
     const iframe = document.getElementById("ytvideo");
-    const overlay = document.getElementById("videoOverlay");
-    
-    // Command YouTube to play
     iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-    
-    // Hide overlay
-    overlay.style.display = "none";
+    document.querySelector(".play-overlay").style.display = "none";
 }
 
 let slideIndex = 1;
