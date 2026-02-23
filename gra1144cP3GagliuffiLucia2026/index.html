@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Long Walk | Lucia Gagliuffi, 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Slab:wght@300;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:'Roboto Slab', serif;
+    background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                      url('https://img.freepik.com/free-photo/grunge-wall-texture_1194-8831.jpg?t=st=1771859756~exp=1771863356~hmac=5ba8a40f93e5e09ba68f03760e2834e79265ec7ba189dde235061f549d6e39d6&w=1480');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color:#000;
+    color:#eee;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+.banner {
+    position:relative;
+    width:100%;
+    height:100vh; 
+    overflow:hidden;
+    background: #000;
+}
+
+.banner iframe {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100vw;
+    height:56.25vw;
+    min-height:100vh;
+    min-width:177.77vh;
+    transform:translate(-50%, -50%);
+    z-index: 1;
+}
+
+.play-overlay {
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.6);
+    cursor:pointer;
+    z-index: 10;
+}
+
+.play-overlay span {
+    font-family:'Alfa Slab One', serif;
+    font-size:2rem;
+    color:white;
+    background:rgba(255, 140, 0, 0.8);
+    padding:20px 40px;
+    border-radius:10px;
+    letter-spacing:2px;
+    transition: 0.3s;
+}
+
+.play-overlay span:hover {
+    background:rgba(255, 140, 0, 1);
+    transform: scale(1.05);
+}
+
+.fallback-link {
+    margin-top: 20px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.wrapper { 
+    width: 1366px; 
+    margin: 0 auto; 
+    background: rgba(0,0,0,0.2);
+}
+
+header {
+    height:80px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#000;
+}
+
+nav ul { list-style:none; }
+nav ul li { display:inline-block; margin:0 30px; }
+nav ul li a {
+    font-family:'Alfa Slab One', serif;
+    text-decoration:none;
+    color:#eee;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    font-size:1.1rem;
+    transition: 0.3s ease;
+}
+nav ul li a:hover { color: #ff8c00; }
+
+.main-title {
+    font-family:'Alfa Slab One', serif;
+    font-size:5rem;
+    text-align:center;
+    padding:50px 0;
+    text-transform:uppercase;
+    color: #ff8c00;
+}
+
+.container {
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:60px 40px;
+    display:flex;
+    gap:60px;
+    align-items:flex-start;
+}
+
+.poster-box { flex:1; }
+.content-box { flex:1.2; }
+
+.container img {
+    width:100%;
+    display:block;
+    border-radius: 12px;
+    box-shadow:0 0 30px rgba(255,255,255,0.05);
+}
+
+.content-box h2, .carousel-section h2, .cast-section h2 {
+    font-family:'Alfa Slab One', serif;
+    margin-bottom:25px;
+    font-size:1.8rem;
+    border-bottom:2px solid #ff8c00;
+    display:inline-block;
+    padding-bottom:5px;
+    color: #ff8c00;
+    text-transform: uppercase;
+}
+
+.content-box p {
+    font-size:1.1rem;
+    margin-bottom:25px;
+    color:#ccc;
+    text-align:left; 
+}
+
+.carousel-section {
+    width:100%;
+    max-width:1100px;
+    margin:80px auto 40px auto;
+    padding:0 20px;
+    text-align: center;
+}
+
+.slideshow-container { position:relative; }
+.mySlides { display:none; }
+.mySlides img {
+    width:100%;
+    height:600px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.prev, .next {
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    padding:18px;
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    transform:translateY(-50%);
+    transition:0.3s;
+    user-select:none;
+    z-index: 5;
+}
+.prev { left: 0; }
+.next { right: 0; }
+.prev:hover, .next:hover { color: #ff8c00; }
+
+.fade { animation:fadeEffect 1s ease-in-out; }
+@keyframes fadeEffect { from { opacity:0.4; } to { opacity:1; } }
+
+.credits-section {
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.credits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+.credit-item h3 {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 0.9rem;
+    color: #ff8c00;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.credit-item p {
+    font-size: 1rem;
+    color: #eee;
+    line-height: 1.4;
+    white-space: pre-line;
+}
+
+.cast-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto 80px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.cast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.cast-item img {
+    width: 100%;
+    height: 450px; 
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cast-item img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px 5px rgba(255, 140, 0, 0.7);
+}
+
+.cast-item h4 {
+    font-family: 'Alfa Slab One', serif;
+    color: #ff8c00;
+    font-size: 1rem;
+    text-transform: uppercase;
+    min-height: 2.5em; 
+}
+
+footer {
+    padding:60px 40px;
+    text-align:center;
+    font-size:0.9rem;
+    background-color:#000;
+    border-top:1px solid #222;
+}
+footer p { color: #888; line-height: 1.6; }
+
+@media (max-width: 1366px) {
+    .wrapper { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner" id="top">
+    <iframe id="ytvideo"
+        src="https://www.youtube.com/embed/vAtUHeMQ1F8?enablejsapi=1&autoplay=0&controls=1&rel=0"
+        frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <div class="play-overlay" id="videoOverlay" onclick="playVideo()">
+        <span>CLICK TO PLAY TRAILER</span>
+        <a href="https://www.youtube.com/watch?v=vAtUHeMQ1F8" target="_blank" class="fallback-link">
+            Open in YouTube (if player is blocked)
+        </a>
+    </div>
+</div>
+
+<div class="wrapper">
+
+<header>
+<nav>
+<ul>
+<li><a href="#top">Home</a></li>
+<li><a href="https://stephenking.com/works/novel/long-walk.html" target="_blank">About</a></li>
+<li><a href="https://stephenking.com/works/" target="_blank">Work</a></li>
+<li><a href="https://stephenking.com/contact/" target="_blank">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<h1 class="main-title">THE LONG WALK</h1>
+
+<main>
+
+<section class="container">
+<div class="poster-box">
+<img src="https://wallpapercave.com/wp/wp15780066.jpg" alt="Poster">
+</div>
+
+<div class="content-box">
+<h2>SYNOPSIS</h2>
+<p>
+From the highly anticipated adaptation of master storyteller Stephen King&rsquo;s first-written novel,
+and Francis Lawrence, the visionary director of The Hunger Games franchise films,
+comes THE LONG WALK, an intense, chilling, and emotional thriller that challenges
+audiences to confront a haunting question: how far could you go?
+</p>
+</div>
+</section>
+
+<section class="carousel-section">
+    <h2>GALLERY</h2>
+<div class="slideshow-container">
+    <div class="mySlides fade"><img src="https://dx35vtwkllhj9.cloudfront.net/lionsgate/the-long-walk/images/regions/gb/gallery/5.jpg"></div>
+    <div class="mySlides fade"><img src="https://dx35vtwkllhj9.cloudfront.net/lionsgate/the-long-walk/images/regions/gb/gallery/1.jpg"></div>
+    <div class="mySlides fade"><img src="https://wallpapercave.com/wp/wp15780055.jpg"></div>
+    <div class="mySlides fade"><img src="https://reactormag.com/wp-content/uploads/2025/09/The-Long-Walk-Still-2-1536x1024.jpg"></div>
+    <div class="mySlides fade"><img src="https://imfdb.org/images/d/db/TLW-Revolver.jpg"></div>
+    <div class="mySlides fade"><img src="https://dx35vtwkllhj9.cloudfront.net/lionsgate/the-long-walk/images/regions/gb/gallery/3.jpg"></div>
+    <div class="mySlides fade"><img src="https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/09/longwalk-unit-240731-00276rc.jpeg"></div>
+    <div class="mySlides fade"><img src="https://imfdb.org/images/3/35/TLW-M16-8.jpg"></div>
+    <div class="mySlides fade"><img src="https://imfdb.org/images/2/29/TLW-M16-6.jpg"></div>
+    <div class="mySlides fade"><img src="https://imfdb.org/images/f/fa/TLW-M16-4.jpg"></div>
+    <div class="mySlides fade"><img src="https://i0.wp.com/bloody-disgusting.com/wp-content/uploads/2025/08/thelongwalk-RomanGriffinDavis-death.jpg?resize=1024%2C576&ssl=1"></div>
+    <div class="mySlides fade"><img src="https://i0.wp.com/bloody-disgusting.com/wp-content/uploads/2025/07/image-84.jpg?w=1555&ssl=1"></div>
+    <div class="mySlides fade"><img src="https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/437c6a5c-4efe-4e17-8cb7-c7e89572a948/Review-+THE+LONG+WALK+is+a+Brutal+and+Emotional+March+Into+Madness+and+Humanity.jpg?format=2500w"></div>
+    <div class="mySlides fade"><img src="https://cdn.mos.cms.futurecdn.net/qkE3e9y3eHpoAuGhUaPw5Z-1680-80.jpg.webp"></div>
+    <div class="mySlides fade"><img src="https://imfdb.org/images/3/39/TLW-M16-10.jpg"></div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+</section>
+
+<section class="credits-section">
+    <div class="credits-grid">
+        <div class="credit-item">
+            <h3>Directed by</h3>
+            <p>Francis Lawrence</p>
+        </div>
+        <div class="credit-item">
+            <h3>Screenplay by</h3>
+            <p>JT Mollner</p>
+        </div>
+        <div class="credit-item">
+            <h3>Based on the Novel by</h3>
+            <p>Stephen King</p>
+        </div>
+        <div class="credit-item">
+            <h3>Produced by</h3>
+            <p>Roy Lee, Steven Schneider, Francis Lawrence, Cameron MacConomy</p>
+        </div>
+        <div class="credit-item"></div> 
+        <div class="credit-item">
+            <h3>Starring</h3>
+            <p>Cooper Hoffman, David Jonsson, Garrett Wareing, Tut Nyuot, Charlie Plummer, Ben Wang, Roman Griffin Davis, Jordan Gonzalez, Joshua Odjick, Josh Hamilton, with Judy Greer and Mark Hamill</p>
+        </div>
+    </div>
+</section>
+
+<section class="cast-section">
+    <h2>CAST</h2>
+    <div class="cast-grid">
+        <div class="cast-item">
+            <img src="https://people.com/thmb/o3d-Btq8fDiBM73ODs6qxeGiIG0=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2):format(webp)/cooper-hoffman-2-ae4a30b6d89c4269a5a2915af8c4193e.jpg" alt="Cooper Hoffman">
+            <h4>Cooper Hoffman</h4>
+            <p>as Raymond &ldquo;Ray&rdquo; Garraty</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/David_Jonsson_by_Gage_Skidmore.jpg" alt="David Jonsson">
+            <h4>David Jonsson</h4>
+            <p>as Peter McVries</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Mark_Hamill_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg" alt="Mark Hamill">
+            <h4>Mark Hamill</h4>
+            <p>as The Major</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Ben_Wang_by_Gage_Skidmore.jpg/960px-Ben_Wang_by_Gage_Skidmore.jpg" alt="Ben Wang">
+            <h4>Ben Wang</h4>
+            <p>as Hank Olson</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://cdn.moviefone.com/admin-uploads/highlights/images/the-long-walk-special-screening-american-cinematheques-beyond-fest-roman-griffin-davis_1757433517.webp?d=1280x720&q=50" alt="Roman Griffin Davis">
+            <h4>Roman Griffin Davis</h4>
+            <p>as Thomas Curley</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Charlie_Plummer_at_the_2024_Toronto_International_Film_Festival_3_%28cropped%29.jpg" alt="Charlie Plummer">
+            <h4>Charlie Plummer</h4>
+            <p>as Gary Barkovitch</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://ntvb.tmsimg.com/assets/assets/1686455_v9_aa.jpg" alt="Joshua Odjick">
+            <h4>Joshua Odjick</h4>
+            <p>as Collie Parker</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://ntvb.tmsimg.com/assets/assets/804184_v9_bb.jpg" alt="Garrett Wareing">
+            <h4>Garrett Wareing</h4>
+            <p>as Billy Stebbins</p>
+        </div>
+        <div class="cast-item">
+            <img src="https://trendyafrica.com/wp-content/uploads/2025/07/Tut-Nyuot-attends-The-Long-Walk-panel-at-San-Diego-Comic-Con-International-2025-in-California.jpg" alt="Tut Nyuot">
+            <h4>Tut Nyuot</h4>
+            <p>as Arthur Baker</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+<p>
+&copy; 2026, Lucia Gagliuffi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be constructed to be representative of current products on the market in a similar product category.
+</p>
+</footer>
+
+</div>
+
+<script>
+// This function communicates with the YouTube Iframe API
+function playVideo() {
+    const iframe = document.getElementById("ytvideo");
+    const overlay = document.getElementById("videoOverlay");
+    
+    // Command YouTube to play
+    iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    
+    // Hide overlay
+    overlay.style.display = "none";
+}
+
+let slideIndex = 1;
+document.addEventListener("DOMContentLoaded", function() {
+    showSlides(slideIndex);
+});
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+    const slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+}
+</script>
+
+</body>
+</html>
