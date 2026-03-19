@@ -1,0 +1,459 @@
+<!doctype html> 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shiki Theatre Company - Featured performances and media gallery.">
+<title>Shiki Theatre Company | Lucia Gagliuffi, 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<style type="text/css">
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #000 url('https://images.unsplash.com/photo-1502230831726-fe5568bc4b34?q=80&w=2000&auto=format&fit=crop') fixed center/cover;
+    color: #fff;
+    height: 100%;
+    overflow: hidden; 
+  }
+
+  #wrapper {
+    width: 90%; 
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: #000; 
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid #d4af37;
+    border-right: 1px solid #d4af37;
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.3);
+  }
+
+  nav { 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 60px;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  }
+  
+  ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 40px; align-items: center; }
+  .nav-logo { height: 40px; width: auto; }
+  
+  nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    font-size: 13px; 
+    letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: #d4af37; }
+
+  section {
+    display: none; 
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 80px; 
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  section:target { display: flex; z-index: 10; }
+  #home { display: flex; }
+  section:target ~ #home { display: none; }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    height: 60vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    flex-shrink: 0;
+  }
+  
+  .video-bg { 
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%; 
+    object-fit: cover; z-index: -1; opacity: 0.6;
+  }
+  
+  .hero-text { 
+    font-family: 'Cinzel', serif;
+    font-size: clamp(25px, 5vw, 60px); 
+    font-weight: 700;
+    color: #fff; 
+    text-transform: uppercase; 
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 0 30px rgba(0,0,0,0.8);
+    text-align: center;
+  }
+  
+  .hero-sub { 
+    font-family: 'Montserrat', sans-serif;
+    color: #d4af37; 
+    letter-spacing: 6px; 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    display: block; 
+    margin-bottom: 10px; 
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .section-header { 
+    padding: 60px 20px 30px 20px; 
+    text-align: center; 
+    flex-shrink: 0;
+  }
+  
+  .section-header h1 { 
+    font-family: 'Cinzel', serif;
+    font-size: 32px; 
+    text-transform: uppercase; 
+    color: #d4af37; 
+    border-bottom: 2px solid #d4af37; 
+    display: inline-block;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+
+  .media-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #fff;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-left: 4px solid #d4af37;
+    margin: 40px 60px 20px 60px;
+    background: rgba(212, 175, 55, 0.1);
+    flex-shrink: 0;
+  }
+
+  .slideshow-container {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    position: relative;
+    overflow: hidden; 
+    flex-shrink: 0;
+  }
+
+  .slide-track {
+    display: flex;
+    gap: 1.5vw;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .mySlides1, .mySlides2 { 
+    flex: 0 0 21vw; 
+    height: 14vw; 
+    min-height: 200px;
+    background-color: #111;
+    border: 1px solid #333;
+  }
+  
+  .mySlides1 iframe, .mySlides2 img { 
+    width: 100%; 
+    height: 100%; 
+    border: none;
+    object-fit: cover;
+    display: block; 
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px 10px;
+    color: #d4af37;
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 100;
+    text-decoration: none;
+    border: 1px solid #d4af37;
+    transition: 0.3s;
+  }
+  .next { right: 0; }
+  .prev { left: 0; }
+
+  .content-grid { display: flex; flex-wrap: wrap; padding: 20px 60px; gap: 20px; justify-content: center; flex-shrink: 0; }
+  .embedded-frame {
+    width: 100%; max-width: 900px; height: 500px; 
+    border: 2px solid #333; background: white; border-radius: 8px;
+  }
+
+  .play-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    padding: 0 60px 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+  
+  .play-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .play-card:hover { transform: translateY(-5px); border-color: #d4af37; }
+  .play-card img { width: 100%; height: auto; border-radius: 4px; }
+  .play-card h2 { font-family: 'Cinzel', serif; color: #d4af37; margin: 5px 0; font-size: 22px; }
+  .play-card p { font-size: 14px; line-height: 1.6; margin: 0; color: #ccc; }
+  .play-meta { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+  
+  .play-buttons { display: flex; gap: 10px; margin-top: auto; padding-top: 10px; }
+  .btn { flex: 1; text-align: center; padding: 12px; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; border-radius: 4px; transition: 0.3s; }
+  .btn-about { border: 1px solid #fff; color: #fff; }
+  .btn-tickets { background: #d4af37; color: #000; }
+  .btn-about:hover { background: #fff; color: #000; }
+
+  footer {
+    padding: 40px 60px;
+    background: #111;
+    color: #888;
+    font-size: 11px;
+    text-align: center;
+    border-top: 1px solid #333;
+    flex-shrink: 0;
+    line-height: 1.6;
+  }
+
+  #home { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('arikae.jpg') center/cover; }
+  #media { background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.92)), url('inside.jpg') center/cover; }
+  #location { background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.92)), url('lionking.jpg') center/cover; }
+  
+  .map-frame { filter: invert(90%) hue-rotate(180deg); }
+  
+  section::-webkit-scrollbar { width: 8px; }
+  section::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+  <nav>
+    <ul>
+      <li><a href="#home"><img src="logo.png" alt="Home" class="nav-logo"></a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="media">
+      <div class="section-header"><h1>Videos & Gallery</h1></div>
+      
+      <div class="media-subtitle">VIDEOS</div>
+      <div class="slideshow-container">
+        <div class="slide-track" id="track1">
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/weNVdB9lmPE" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/uxuN4MnO1j0" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/Xzzbm4LgYRQ" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/bKDc2nBMjCI" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/9VaNXMZA4po" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/J1oE61GrXPw" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/ORiT80Hl6Xc" frameborder="0" allowfullscreen></iframe></div>
+          <div class="mySlides1"><iframe src="https://www.youtube.com/embed/4UiZsGdg0qs" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <a class="prev" onclick="moveTrack(-1, 0)">❮</a>
+        <a class="next" onclick="moveTrack(1, 0)">❯</a>
+      </div>
+
+      <div class="media-subtitle">GALLERY</div>
+      <div class="slideshow-container">
+        <div class="slide-track" id="track2">
+          <div class="mySlides2"><img src="https://64.media.tumblr.com/67e09d9a3c05807e9dbde97a2ad5d0c5/02abbb9981b13519-ab/s1280x1920/14121cc12d7f30dc6dfc1be9f11a8cb2ca71d186.jpg" alt="Gallery 1"></div>
+          <div class="mySlides2"><img src="https://minatokankoprod.blob.core.windows.net/assets/2021/06/25/05/56/41/%20B%20%E5%8A%87%E5%9B%A3%E5%9B%9B%E5%AD%A3%E3%80%8E%E3%82%A2%E3%83%8A%E3%81%A8%E9%9B%AA%E3%81%AE%E5%A5%B3%E7%8E%8B%E3%80%8F_(C)Disney_DSC_3214.jpg" alt="Gallery 2"></div>
+          <div class="mySlides2"><img src="https://64.media.tumblr.com/d4b8472437e5c5a421bd6c5fc6a1da27/02abbb9981b13519-8c/s1280x1920/bebb3574734bae1b0be07c2358c7e2536a5c774b.jpg" alt="Gallery 3"></div>
+          <div class="mySlides2"><img src="https://64.media.tumblr.com/c2de25ee94022cd4e0e63ae39dae13a0/02abbb9981b13519-c3/s1280x1920/d56d90383c37518d7d1b023e3031649ba59fa162.jpg" alt="Gallery 4"></div>
+          <div class="mySlides2"><img src="https://cdn.japan-forward.com/wp-content/uploads/2020/10/Shiki-Theatre-Performing-Arts-Must-Survive-001.jpg" alt="Gallery 5"></div>
+          <div class="mySlides2"><img src="https://cloudimages2.broadwayworld.com/upload13/2307628/tn-500_minamiokamuraandtakamasahagiwara.jpg?format=auto&width=1400" alt="Gallery 6"></div>
+          <div class="mySlides2"><img src="https://www.taiyooil.net/english/news/files/images/20220330_1.jpg" alt="Gallery 7"></div>
+          <div class="mySlides2"><img src="https://japan-forward.com/wp-content/uploads/2020/10/Shiki-Theatre-Performing-Arts-Must-Survive-004.jpg" alt="Gallery 8"></div>
+          <div class="mySlides2"><img src="https://cloudimages2.broadwayworld.com/upload13/2307628/tn-500_shiontaniharaandthecast.jpg?format=auto&width=1400" alt="Gallery 9"></div>
+          <div class="mySlides2"><img src="https://www.taiyooil.net/english/news/files/images/20220330_2.jpg" alt="Gallery 10"></div>
+          <div class="mySlides2"><img src="https://cloudimages2.broadwayworld.com/upload13/2307628/tn-500_shiontaniharaandthecast2.jpg?format=auto&width=1400" alt="Gallery 11"></div>
+        </div>
+        <a class="prev" onclick="moveTrack(-1, 1)">❮</a>
+        <a class="next" onclick="moveTrack(1, 1)">❯</a>
+      </div>
+      <footer>
+        <p>&copy; 2026, Lucia Gagliuffi.</p>
+        <p>This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+      </footer>
+    </section>
+
+    <section id="location">
+      <div class="section-header"><h1>Our Location</h1></div>
+      <div class="content-grid">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.31137976856!2d139.75883587625143!3d35.66068213131709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bc277353f4d%3A0xc3d298357a79e67c!2sShiki%20Theatre%20JR-East%20Arts%20Center!5e0!3m2!1sen!2sjp!4v1710000000000!5m2!1sen!2sjp" class="embedded-frame map-frame" frameborder="0"></iframe>
+      </div>
+      <footer>
+        <p>&copy; 2026, Lucia Gagliuffi.</p>
+        <p>This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+      </footer>
+    </section>
+
+    <section id="home">
+      <div class="video-container">
+        <video autoplay muted loop playsinline class="video-bg">
+          <source src="fondo.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content" style="text-align:center;">
+          <span class="hero-sub">Lucia Gagliuffi Presents</span>
+          <h1 class="hero-text">The Best Stages of Shiki</h1>
+        </div>
+      </div>
+
+      <div class="section-header"><h1>Performance Schedule</h1></div>
+      <div class="content-grid">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLima&showPrint=0&showCalendars=0&title=Shiki%20Theatre%20Company&hl=en&src=Z2FnbGl1ZmZpbHVjaWFAZ21haWwuY29t&color=%23039be5" class="embedded-frame" scrolling="no" frameborder="0"></iframe>
+      </div>
+
+      <div class="section-header"><h1>Now Playing</h1></div>
+
+      <div class="play-grid">
+        <div class="play-card">
+          <img src="https://www.shiki.jp/en/images/img_frozen.jpg" alt="Frozen">
+          <h2>FROZEN&trade;</h2>
+          <p>&ldquo;It is the story of two sisters who let themselves go with true love&rdquo;</p>
+          <div class="play-meta">Tokyo | 01/01/2026&ndash;08/30/2026</div>
+          <div class="play-buttons">
+            <a href="https://www.shiki.jp/en/applause/anayuki/" target="_blank" class="btn btn-about">About Show</a>
+            <a href="#" target="_blank" class="btn btn-tickets">Get Tickets</a>
+          </div>
+        </div>
+
+        <div class="play-card">
+          <img src="https://www.shiki.jp/en/images/img_lionking.jpg" alt="Lion King">
+          <h2>THE LION KING&trade;</h2>
+          <p>&ldquo;An epic musical that plays out under the brightly-shining sun on the plains of Africa.&rdquo;</p>
+          <div class="play-meta">Tokyo | 01/01/2026&ndash;12/31/2026</div>
+          <div class="play-buttons">
+            <a href="https://www.shiki.jp/en/applause/lionking/" target="_blank" class="btn btn-about">About Show</a>
+            <a href="#" target="_blank" class="btn btn-tickets">Get Tickets</a>
+          </div>
+        </div>
+
+        <div class="play-card">
+          <img src="https://www.shiki.jp/en/images/img_aladdin.jpg" alt="Aladdin">
+          <h2>ALADDIN&trade;</h2>
+          <p>&ldquo;A young man, a princess, and a genie set on a quest for freedom.&rdquo;</p>
+          <div class="play-meta">Tokyo | 01/02/2026&ndash;12/31/2026</div>
+          <div class="play-buttons">
+            <a href="https://www.shiki.jp/en/applause/aladdin/" target="_blank" class="btn btn-about">About Show</a>
+            <a href="#" target="_blank" class="btn btn-tickets">Get Tickets</a>
+          </div>
+        </div>
+
+        <div class="play-card">
+          <img src="https://www.shiki.jp/en/images/img_bb.jpg" alt="Beauty and the Beast">
+          <h2>BEAUTY AND THE BEAST&trade;</h2>
+          <p>&ldquo;A Ray of Light that Hits the Heart &ndash; Love is the Magic that Makes People Happy.&rdquo;</p>
+          <div class="play-meta">Maihama | 01/01/2026&ndash;03/15/2026</div>
+          <div class="play-buttons">
+            <a href="https://www.shiki.jp/en/applause/bb/" target="_blank" class="btn btn-about">About Show</a>
+            <a href="#" target="_blank" class="btn btn-tickets">Get Tickets</a>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>&copy; 2026, Lucia Gagliuffi.</p>
+        <p>This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<script>
+    let tracks = [document.getElementById('track1'), document.getElementById('track2')];
+    let currentIndexes = [0, 0]; 
+    let isMoving = [false, false];
+
+    tracks.forEach((track, index) => {
+        const slides = Array.from(track.children);
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[slides.length - 1].cloneNode(true);
+        
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, slides[0]);
+
+        currentIndexes[index] = 1;
+        updatePosition(index, false);
+    });
+
+    function moveTrack(direction, trackIndex) {
+        if (isMoving[trackIndex]) return;
+        isMoving[trackIndex] = true;
+
+        const track = tracks[trackIndex];
+        track.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+        
+        currentIndexes[trackIndex] += direction;
+        updatePosition(trackIndex, true);
+
+        track.addEventListener('transitionend', () => {
+            const slides = track.children;
+            if (currentIndexes[trackIndex] === slides.length - 1) {
+                track.style.transition = "none";
+                currentIndexes[trackIndex] = 1;
+                updatePosition(trackIndex, false);
+            }
+            if (currentIndexes[trackIndex] === 0) {
+                track.style.transition = "none";
+                currentIndexes[trackIndex] = slides.length - 2;
+                updatePosition(trackIndex, false);
+            }
+            isMoving[trackIndex] = false;
+        }, { once: true });
+    }
+
+    function updatePosition(trackIndex, animate) {
+        const track = tracks[trackIndex];
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const slideWidth = (21 + 1.5) * (vw / 100); 
+        
+        const offset = -(currentIndexes[trackIndex] * slideWidth);
+        track.style.transform = `translateX(${offset}px)`;
+    }
+
+    window.addEventListener('resize', () => {
+        updatePosition(0, false);
+        updatePosition(1, false);
+    });
+</script>
+</body>
+</html>
