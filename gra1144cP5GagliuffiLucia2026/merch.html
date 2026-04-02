@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/parent.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="UTF-8">
+    <!-- InstanceBeginEditable name="EditRegion2" -->
+    <title>Black Pink | Merch Store | Lucia Gagliuffi, 2026</title>
+    <!-- InstanceEndEditable -->
+<link href="styles.css" rel="stylesheet" type="text/css">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <img src="logo.png" alt="Black Pink Logo" width="200" class="logo">
+        <h1>BLACK PINK</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="music.html">Music Store</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="concerts.html">Concerts</a></li>
+            <li><a href="photos.html">Photo Gallery</a></li>
+            <li><a href="mailing.html">Join List</a></li>
+            <li><a href="merch.html">Merch Store</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+    </nav>
+    <!-- InstanceBeginEditable name="EditRegion1" -->
+    <main>
+      <section class="promo">
+        <h2 style="margin-bottom: 40px;">Official Merch Store</h2>
+
+        <style>
+          .store-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 30px;
+              padding: 10px;
+              text-align: left;
+          }
+
+          .album-card {
+              background-color: #000;
+              border: 1px solid #222;
+              padding: 15px;
+              transition: 0.3s;
+          }
+          .album-card:hover { border-color: #f7a8b8; }
+
+          .album-img-container {
+              position: relative;
+              width: 100%;
+              height: 350px;
+              overflow: hidden;
+              margin-bottom: 15px;
+              background-color: #fff;
+          }
+          .album-img-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: opacity 0.5s ease;
+          }
+          
+          /* Swap logic */
+          .img-hover { opacity: 0; }
+          .album-card:hover .img-default { opacity: 0; }
+          .album-card:hover .img-hover { opacity: 1; }
+
+          .price { color: #f7a8b8; font-size: 22px; font-weight: bold; margin: 10px 0; }
+          .album-title { font-size: 15px; font-weight: bold; margin-bottom: 5px; min-height: 40px; }
+          .store-info { font-size: 12px; color: #888; margin-top: 2px; }
+          .stock-low { color: #f7a8b8; font-weight: bold; font-size: 11px; margin-top: 5px; }
+          
+          .buy-btn {
+              display: inline-block;
+              width: 100%;
+              background-color: #f7a8b8;
+              color: #000;
+              text-align: center;
+              padding: 10px 0;
+              text-decoration: none;
+              font-weight: bold;
+              margin-top: 15px;
+              text-transform: uppercase;
+          }
+          .buy-btn:hover { background-color: #fff; color: #000; }
+        </style>
+
+        <div class="store-grid">
+          
+          <div class="album-card">
+            <div class="album-img-container">
+              <img src="merch1.jpg" class="img-default" alt="Merch 1">
+              <img src="merch2.jpg" class="img-hover" alt="Merch 2">
+            </div>
+            <div class="album-title">BLACKPINK Bomber Jacket_Black</div>
+            <div class="price">$120.00</div>
+            <div class="store-info">Ready within 2 hours at Deerfield Beach</div>
+            <div class="stock-low">Only 3 left</div>
+            <a href="#" class="buy-btn">Add to Cart</a>
+          </div>
+
+          <div class="album-card">
+            <div class="album-img-container">
+              <img src="merch3.jpg" class="img-default" alt="Merch 3">
+              <img src="merch4.jpg" class="img-hover" alt="Merch 4">
+            </div>
+            <div class="album-title">BLACKPINK Denim Jacket_Light Blue</div>
+            <div class="price">$100.00</div>
+            <div class="store-info">Ready within 2 hours at Deerfield Beach</div>
+            <div class="stock-low">Only 12 left</div>
+            <a href="#" class="buy-btn">Add to Cart</a>
+          </div>
+
+          <div class="album-card">
+            <div class="album-img-container">
+              <img src="merch5.jpg" alt="Merch 5" style="opacity: 1 !important;">
+            </div>
+            <div class="album-title">BLACKPINK BLINK Mittens</div>
+            <div class="price">$15.00</div>
+            <div class="store-info">Ready within 2 hours at Deerfield Beach</div>
+            <div class="stock-low">Limited Edition</div>
+            <a href="#" class="buy-btn">Add to Cart</a>
+          </div>
+
+          <div class="album-card">
+            <div class="album-img-container">
+              <img src="merch6.png" class="img-default" alt="Merch 6">
+              <img src="merch7.jpg" class="img-hover" alt="Merch 7">
+            </div>
+            <div class="album-title">BLACKPINK Character Tee_White</div>
+            <div class="price">$40.00</div>
+            <div class="store-info">Ready within 2 hours at Deerfield Beach</div>
+            <div class="stock-low">Only 5 left</div>
+            <a href="#" class="buy-btn">Add to Cart</a>
+          </div>
+
+          <div class="album-card">
+            <div class="album-img-container">
+              <img src="merch8.jpg" class="img-default" alt="Merch 8">
+              <img src="merch9.jpg" class="img-hover" alt="Merch 9">
+            </div>
+            <div class="album-title">BLACKPINK Character Pullover Hoodie_Grey</div>
+            <div class="price">$80.00</div>
+            <div class="store-info">Ready within 2 hours at Deerfield Beach</div>
+            <div class="stock-low">Low Stock</div>
+            <a href="#" class="buy-btn">Add to Cart</a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <!-- InstanceEndEditable -->
+    <footer>
+      <p>&copy; 2026, Lucia Gagliuffi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental.</p>
+    </footer>
+</div>
+</body>
+<!-- InstanceEnd --></html>

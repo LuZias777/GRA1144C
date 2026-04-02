@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- TemplateBeginEditable name="EditRegion2" -->
+    <title>Black Pink | Home | Lucia Gagliuffi, 2026</title>
+    <!-- TemplateEndEditable -->
+<link href="styles.css" rel="stylesheet" type="text/css">
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <img src="logo.png" alt="Black Pink Logo" width="200" class="logo">
+        <h1>BLACK PINK</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="music.html">Music Store</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="concerts.html">Concerts</a></li>
+            <li><a href="photos.html">Photo Gallery</a></li>
+            <li><a href="mailing.html">Join List</a></li>
+            <li><a href="merch.html">Merch Store</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+    </nav>
+    <!-- TemplateBeginEditable name="EditRegion1" -->
+    <main>
+      <section class="promo">
+        <h2>Born Pink: World Tour Merch Available Now</h2>
+      </section>
+    </main>
+    <!-- TemplateEndEditable -->
+    <footer>
+      <p>&copy; 2026, Lucia Gagliuffi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental.</p>
+    </footer>
+</div>
+</body>
+</html>
