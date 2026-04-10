@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to Michael Kors &#124; Lucia Gagliuffi, 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: "Public Sans", sans-serif;
+    color: #333;
+  }
+  
+  .wrapper {
+    display: block;
+    width: 95%;
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: white;
+    overflow: hidden;
+    min-height: auto;
+    padding-bottom: 20px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  header h1 { 
+    font-family: "Syne", sans-serif;
+    font-size: 24px; 
+    margin: 0; 
+    font-weight: 800; 
+  }
+
+  main { display: block; padding: 20px; overflow: hidden; }
+
+  #image-container, #details {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: -4px;
+    box-sizing: border-box;
+  }
+
+  #image-container {
+    height: auto;
+    position: relative; 
+  }
+  
+  #image-container img {
+    width: 100%;
+    height: auto;
+    display: none; /* Controlled by JS */
+  }
+
+  #details {
+    padding: 0 40px;
+  }
+  
+  @media (max-width: 800px) {
+    #image-container, #details {
+      width: 100%;
+      display: block;
+    }
+    #details {
+      padding: 20px 0;
+    }
+    .wrapper {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .brand-sub { 
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px; 
+    font-weight: 600; 
+    color: #666; 
+    margin-bottom: 5px; 
+  }
+  
+  h2 { 
+    font-family: "Syne", sans-serif;
+    font-size: 20px; 
+    margin: 0 0 10px 0; 
+    font-weight: 800; 
+    color: #000; 
+  }
+  
+  .price { font-size: 18px; margin-bottom: 30px; }
+
+  .swatch-container { margin-bottom: 30px; }
+  .swatch-label { font-size: 12px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  
+  .swatch {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  
+  .btn-red { background-color: #F8D2C9; }
+  .btn-green { background-color: #E1EAD6; }
+  .btn-blue { background-color: #DEF2F1; }
+
+  .size-group { margin-top: 10px; margin-bottom: 30px; }
+  .size-btn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    min-width: 50px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .buy-buttons { margin-top: 40px; }
+  .btn-add, .btn-buy {
+    width: 100%;
+    padding: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .btn-add { background: white; border: 1px solid #000; }
+  .btn-buy { background: #000; color: white; border: 1px solid #000; }
+
+  footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    font-size: 11px;
+    color: #777;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .payment-box-wrapper {
+    margin-top: 30px;
+    background-color: #f7f7f7;
+    padding: 15px 10px;
+  }
+  .logos-row { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .v-sep { color: #ccc; }
+</style>
+
+<script type="text/javascript">
+function MM_swapImgRestore() { 
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { 
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) {
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() {
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_showHideLayers() { 
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  if ((obj=MM_findObj(args[i]))!=null) {
+    v=args[i+2];
+    if (obj.style) { 
+      obj=obj.style; 
+      v=(v=='show')?'block':(v=='hide')?'none':v; 
+    }
+    obj.display=v;
+  }
+}
+
+function updateInfo(color, sizeId) {
+    document.getElementById('color-label').innerHTML = color;
+    document.getElementById('sizes-red').style.display = (sizeId === 'sizes-red') ? 'block' : 'none';
+    document.getElementById('sizes-green').style.display = (sizeId === 'sizes-green') ? 'block' : 'none';
+    document.getElementById('sizes-blue').style.display = (sizeId === 'sizes-blue') ? 'block' : 'none';
+}
+</script>
+</head>
+
+<body onLoad="MM_preloadImages('red-back.png','green-back.png','blue-back.png')">
+<div class="wrapper">
+  <header>
+    <h1>MICHAEL KORS&reg;</h1>
+  </header>
+
+  <main>
+    <section id="image-container">
+      <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('red-pic','','red-back.png',1)">
+        <img src="red-front.png" id="red-pic" style="display:block;" alt="Red Polo">
+      </a>
+      <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('green-pic','','green-back.png',1)">
+        <img src="green-front.png" id="green-pic" alt="Green Polo">
+      </a>
+      <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('blue-pic','','blue-back.png',1)">
+        <img src="blue-front.png" id="blue-pic" alt="Blue Polo">
+      </a>
+    </section>
+
+    <section id="details">
+      <div class="brand-sub">MICHAEL KORS WOMEN</div>
+      <h2>Cotton Blend Pijama</h2>
+      <p class="price">&#36;89.50</p>
+      
+      <div class="swatch-container">
+        <span class="swatch-label">Color: <strong id="color-label">RED</strong></span>
+        <div class="swatch btn-red" onClick="MM_showHideLayers('red-pic','','show','green-pic','','hide','blue-pic','','hide'); updateInfo('RED', 'sizes-red')"></div>
+        <div class="swatch btn-green" onClick="MM_showHideLayers('red-pic','','hide','green-pic','','show','blue-pic','','hide'); updateInfo('GREEN', 'sizes-green')"></div>
+        <div class="swatch btn-blue" onClick="MM_showHideLayers('red-pic','','hide','green-pic','','hide','blue-pic','','show'); updateInfo('BLUE', 'sizes-blue')"></div>
+      </div>
+
+      <div class="size-container">
+        <span class="swatch-label">Size: US &#124; EU</span>
+        <div id="sizes-red" class="size-group">
+          <button class="size-btn">XS</button><button class="size-btn">S</button><button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+        </div>
+        <div id="sizes-green" class="size-group" style="display:none;">
+          <button class="size-btn">L</button><button class="size-btn">XL</button>
+        </div>
+        <div id="sizes-blue" class="size-group" style="display:none;">
+          <button class="size-btn">S</button><button class="size-btn">M</button>
+        </div>
+      </div>
+
+      <p style="font-size: 14px; color: #555; line-height: 1.5;">
+        This classic Pijama is crafted from breathable cotton mesh.
+      </p>
+
+      <div class="buy-buttons">
+        <button class="btn-add">Add to Bag</button>
+        <button class="btn-buy">Buy Now</button>
+        
+        <div class="payment-box-wrapper">
+          <div class="logos-row">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Afterpay_logo.svg" alt="Afterpay" style="height:15px">
+            <span>&#9432;</span>
+            <span class="v-sep">&#124;</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Klarna_Payment_Badge.svg" alt="Klarna" style="height:15px">
+            <span>&#9432;</span>
+            <span class="v-sep">&#124;</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style="height:15px">
+            <span>&#9432;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026, Lucia Gagliuffi. This is a fictitious web page created solely for educational purposes.</p>
+  </footer>
+</div> 
+</body>
+</html>
