@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Welcome to Michael Kors &#124; Lucia Gagliuffi, 2026</title>
+<title>Welcome to Michael Kors | Lucia Gagliuffi, 2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,7 @@
   #image-container img {
     width: 100%;
     height: auto;
-    display: none; /* Controlled by JS */
+    display: none;
   }
 
   #details {
@@ -129,7 +129,18 @@
     min-width: 50px;
     cursor: pointer;
     font-size: 12px;
+    transition: all 0.2s;
   }
+
+  .size-btn.active {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #000;
+  }
+
+  
+  .toggle-region { cursor: pointer; }
+  .bold-text { font-weight: 800; color: #000; }
 
   .buy-buttons { margin-top: 40px; }
   .btn-add, .btn-buy {
@@ -155,10 +166,25 @@
   .payment-box-wrapper {
     margin-top: 30px;
     background-color: #f7f7f7;
-    padding: 15px 10px;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 4px;
   }
-  .logos-row { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .v-sep { color: #ccc; }
+  .payment-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    display: block;
+  }
+  .logos-row { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 12px; 
+    flex-wrap: wrap; 
+  }
+  .v-sep { color: #ccc; font-weight: 100; }
+  .info-icon { font-size: 14px; color: #333; }
 </style>
 
 <script type="text/javascript">
@@ -200,6 +226,31 @@ function updateInfo(color, sizeId) {
     document.getElementById('sizes-red').style.display = (sizeId === 'sizes-red') ? 'block' : 'none';
     document.getElementById('sizes-green').style.display = (sizeId === 'sizes-green') ? 'block' : 'none';
     document.getElementById('sizes-blue').style.display = (sizeId === 'sizes-blue') ? 'block' : 'none';
+    
+    var buttons = document.getElementsByClassName('size-btn');
+    for(var i=0; i<buttons.length; i++) {
+        buttons[i].classList.remove('active');
+    }
+}
+
+function selectSize(btn) {
+    var parent = btn.parentElement;
+    var siblings = parent.getElementsByClassName('size-btn');
+    for (var i = 0; i < siblings.length; i++) {
+        siblings[i].classList.remove('active');
+    }
+    btn.classList.add('active');
+}
+
+function toggleRegion(region) {
+    document.getElementById('label-us').classList.remove('bold-text');
+    document.getElementById('label-eu').classList.remove('bold-text');
+    
+    if (region === 'us') {
+        document.getElementById('label-us').classList.add('bold-text');
+    } else {
+        document.getElementById('label-eu').classList.add('bold-text');
+    }
 }
 </script>
 </head>
@@ -236,15 +287,20 @@ function updateInfo(color, sizeId) {
       </div>
 
       <div class="size-container">
-        <span class="swatch-label">Size: US &#124; EU</span>
+        <span class="swatch-label">Size: 
+            <span id="label-us" class="toggle-region" onclick="toggleRegion('us')">US</span> 
+            | 
+            <span id="label-eu" class="toggle-region" onclick="toggleRegion('eu')">EU</span>
+        </span>
+        
         <div id="sizes-red" class="size-group">
-          <button class="size-btn">XS</button><button class="size-btn">S</button><button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+          <button class="size-btn" onclick="selectSize(this)">XS</button><button class="size-btn" onclick="selectSize(this)">S</button><button class="size-btn" onclick="selectSize(this)">M</button><button class="size-btn" onclick="selectSize(this)">L</button><button class="size-btn" onclick="selectSize(this)">XL</button>
         </div>
         <div id="sizes-green" class="size-group" style="display:none;">
-          <button class="size-btn">L</button><button class="size-btn">XL</button>
+          <button class="size-btn" onclick="selectSize(this)">L</button><button class="size-btn" onclick="selectSize(this)">XL</button>
         </div>
         <div id="sizes-blue" class="size-group" style="display:none;">
-          <button class="size-btn">S</button><button class="size-btn">M</button>
+          <button class="size-btn" onclick="selectSize(this)">XS</button><button class="size-btn" onclick="selectSize(this)">S</button><button class="size-btn" onclick="selectSize(this)">M</button><button class="size-btn" onclick="selectSize(this)">L</button><button class="size-btn" onclick="selectSize(this)">XL</button>
         </div>
       </div>
 
@@ -257,15 +313,16 @@ function updateInfo(color, sizeId) {
         <button class="btn-buy">Buy Now</button>
         
         <div class="payment-box-wrapper">
+          <span class="payment-text">Pay over time with</span>
           <div class="logos-row">
             <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Afterpay_logo.svg" alt="Afterpay" style="height:15px">
-            <span>&#9432;</span>
+            <span class="info-icon">&#9432;</span>
             <span class="v-sep">&#124;</span>
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Klarna_Payment_Badge.svg" alt="Klarna" style="height:15px">
-            <span>&#9432;</span>
+            <span class="info-icon">&#9432;</span>
             <span class="v-sep">&#124;</span>
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style="height:15px">
-            <span>&#9432;</span>
+            <span class="info-icon">&#9432;</span>
           </div>
         </div>
       </div>
@@ -273,7 +330,7 @@ function updateInfo(color, sizeId) {
   </main>
 
   <footer>
-    <p>&copy; 2026, Lucia Gagliuffi. This is a fictitious web page created solely for educational purposes.</p>
+    <p>&copy; 2026, Lucia Gagliuffi. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
   </footer>
 </div> 
 </body>
