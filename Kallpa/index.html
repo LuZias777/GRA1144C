@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kallpa | Pure Amazonian Energy</title>
+    <style>
+        :root {
+            --primary-green: #2d5a27;
+            --primary-yellow: #f4d03f;
+            --primary-pink: #c2185b;
+            --dark-text: #1a1a1a;
+            --light-bg: #f9f9f7;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background-color: var-light-bg;
+            color: var(--dark-text);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo img { height: 50px; }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            min-height: 60vh;
+        }
+
+        .hero-text { flex: 1; }
+        .hero-image { flex: 1; text-align: right; }
+        .hero-image img { max-width: 100%; border-radius: 15px; }
+
+        .hero h1 { font-size: 4rem; line-height: 1; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 500px; }
+
+        /* Shop Section */
+        .shop-section { padding: 80px 5%; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover { transform: translateY(-10px); }
+        .product-card img { width: 100%; height: auto; margin-bottom: 20px; }
+
+        .btn {
+            background: var(--dark-text);
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn:hover { opacity: 0.8; }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: #fff;
+            padding: 50px 5%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="logo-02.png" alt="Kallpa Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#shop">Shop</a>
+            <a href="#about">Our Fruits</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>STRENGTH FROM THE AMAZON</h1>
+            <p>95% Pure fruit juice and pulp. Experience the power of Bacaba, Aguaje, and Pacay in every 16 fl oz bottle.</p>
+            <button class="btn">Shop Now</button>
+        </div>
+        <div class="hero-image">
+            <img src="mockup final.jpg" alt="Kallpa Bottles">
+        </div>
+    </section>
+
+    <section id="shop" class="shop-section">
+        <h2 class="section-title">Explore the Flavors</h2>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="guaba.png" alt="Aguaje Flavor">
+                <h3>AGUAJE</h3>
+                <p>High in Vitamin A & Healthy Fats</p>
+                <p><strong>$4.99 | 16 fl oz</strong></p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="bacaba.png" alt="Bacaba Flavor">
+                <h3>BACABA</h3>
+                <p>Antioxidant Powerhouse</p>
+                <p><strong>$4.99 | 16 fl oz</strong></p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pacay.png" alt="Pacay Flavor">
+                <h3>PACAY</h3>
+                <p>Sustainably Harvested & Refreshing</p>
+                <p><strong>$4.99 | 16 fl oz</strong></p>
+                <button class="btn">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="shop-section" style="background: #f0f0f0;">
+        <div style="display: flex; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1;">
+                <img src="caja.jpg" alt="Kallpa Box" style="max-width: 80%; border-radius: 10px;">
+            </div>
+            <div style="flex: 1; text-align: left; padding: 20px;">
+                <h2>THE KALLPA VARIETY PACK</h2>
+                <p>Get the full Amazonian experience. Includes 9 bottles (3 of each flavor).</p>
+                <h3>$39.99 | 144 fl oz Total</h3>
+                <button class="btn">Buy Bundle</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="logo-02.png" alt="Kallpa Logo" style="height: 40px; filter: invert(1); margin-bottom: 20px;">
+        <p>&copy; 2026 Kallpa Amazonian Juice. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
