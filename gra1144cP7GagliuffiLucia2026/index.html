@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Welcome to Trip Viajes | Lucia Gagliuffi, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.tabs.min.css" rel="stylesheet" type="text/css">
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.tabs.min.js"></script>
+
+<style type="text/css">
+:root {
+    --accent-blue: #0099ff;
+    --deep-navy: #000D41;
+    --white-glass: rgba(255, 255, 255, 0.1);
+    --dark-glass: rgba(0, 0, 0, 0.75);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--deep-navy) url(sky.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Cabin", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 100%;
+    padding: 10px 0;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    margin-left: 32px;
+}
+
+.wrapper {
+    width: 1366px;
+    margin: 60px auto;
+    border-radius: 24px;
+    background-color: var(--dark-glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    flex: 1; 
+}
+
+
+#Tabs2 { background: transparent; border: none; }
+
+#Tabs2 ul {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+#Tabs2 li {
+    background: var(--white-glass);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    margin: 0;
+    flex: 1;
+    padding: 0 !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#Tabs2 li a {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 25px 10px;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+#Tabs2 li:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-5px);
+}
+
+#Tabs2 li.ui-tabs-active {
+    background-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 10px 20px rgba(0, 153, 255, 0.4);
+}
+
+#Tabs2 img {
+    margin-bottom: 12px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    display: block;
+}
+
+p {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 30px 10px;
+    letter-spacing: -0.5px;
+}
+
+#tabs-6 > div, #tabs-7 > div, #tabs-8 > div, #tabs-9 > div, #tabs-10 > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 10px;
+    align-items: end; 
+}
+
+input, select {
+    padding: 0 15px;
+    height: 55px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    background: #FFFFFF;
+    color: #333;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container input[type="number"] {
+    padding-top: 18px; 
+}
+
+.input-label {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    color: var(--accent-blue); 
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.search {
+    background-color: var(--accent-blue);
+    color: #FFFFFF;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    height: 55px;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.disclaimer {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+</style>
+</head>
+
+<body>
+<header>
+    <img src="tripviajes.png" alt="Trip Viajes Logo" class="logo">
+</header>
+
+<div class="wrapper">
+  <div id="Tabs2">
+    <ul>
+      <li><a href="#tabs-6"><img src="airplane.png" alt="" width="60" height="35">Flights</a></li>
+      <li><a href="#tabs-7"><img src="hotel.png" alt="" width="50" height="35">Hotels</a></li>
+      <li><a href="#tabs-8"><img src="cars.png" alt="" width="70" height="35">Cars</a></li>
+      <li><a href="#tabs-9"><img src="cruises.png" alt="" width="45" height="35">Cruises</a></li>
+      <li><a href="#tabs-10"><img src="things.png" alt="" width="40" height="35">Things to Do</a></li>
+    </ul>
+    
+    <div id="tabs-6">
+        <p>Find your Flight</p>
+        <div>
+            <input type="text" placeholder="Leaving from">
+            <input type="text" placeholder="Going to">
+            <input type="date">
+            <input type="date">
+            <div class="input-container">
+                <span class="input-label">Travelers</span>
+                <input type="number" value="1" min="1" max="10">
+            </div>
+            <input type="submit" class="search" value="Search">
+        </div>
+    </div>
+
+    <div id="tabs-7">
+        <p>Find your Hotel</p>
+        <div>
+            <input type="text" placeholder="Going to">
+            <select>
+                <option value="0" selected="selected">2 travelers, 1 room</option>
+                <option value="1">1 traveler, 1 room</option>
+                <option value="3">4 travelers, 2 rooms</option>
+            </select>
+            <input type="date">
+            <input type="date">
+            <input type="submit" class="search" value="Search">
+        </div>
+    </div>
+
+    <div id="tabs-8">
+        <p>Find your Car</p>
+        <div>
+            <input type="text" placeholder="Pick-up">
+            <input type="text" placeholder="Same as pick-up">
+            <input type="date">
+            <input type="date">
+            <select><option selected>10:00 am</option><option>11:00 am</option></select>
+            <select><option selected>10:00 am</option><option>11:00 am</option></select>
+            <input type="submit" class="search" value="Search">
+        </div>
+    </div>
+
+    <div id="tabs-9">
+        <p>Find your Cruise</p>
+        <div>
+            <input type="text" placeholder="Going to">
+            <input type="date">
+            <div class="input-container">
+                <span class="input-label">Min Nights</span>
+                <input type="number" value="6" min="1" max="30">
+            </div>
+            <div class="input-container">
+                <span class="input-label">Max Nights</span>
+                <input type="number" value="13" min="1" max="30">
+            </div>
+            <input type="submit" class="search" value="Search">
+        </div>
+    </div>
+
+    <div id="tabs-10">
+        <p>Things to Do</p>
+        <div>
+            <input type="text" placeholder="Going to">
+            <input type="date">
+            <input type="date">
+            <input type="submit" class="search" value="Search">
+        </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+    <p class="disclaimer">© 2026, Lucia Gagliuffi Rincón. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+</footer>
+
+<script type="text/javascript">
+$(function() {
+    $( "#Tabs2" ).tabs({
+        show: { effect: "fade", duration: 300 }
+    }); 
+});
+</script>
+</body>
+</html>
